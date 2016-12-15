@@ -1,0 +1,186 @@
+{
+    "GET" : {
+        "defaultRoute" : "view",
+        "view" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\User"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/user.tss"]
+            }
+        },
+        "signin" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Signin"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signin.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
+        },
+        "signup" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Signup"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signup.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
+        },
+        "signout" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Signout"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signout.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "submit"
+        },
+        "edit" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Edit"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/edit.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
+        },
+        "change-password" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\ChangePassword"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changePassword.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
+        },
+        "change-security-data" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\ChangeSecurityData"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changeSecurityData.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
+        }
+    },
+    "POST" : {
+        "defaultRoute" : "index",
+        "index" : {
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/user.tss"]
+            }
+        },
+        "signin" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Signin"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signin.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "submit"
+        },
+        "signup" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Signup"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signup.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "submit"
+        },
+        "edit" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\Edit"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/edit.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "submit"
+        },
+        "change-password" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\ChangePassword"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changePassword.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "submit"
+        },
+        "change-security-data" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\ChangeSecurityData"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changeSecurityData.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "submit"
+        },
+        "ajax" : {
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder"
+            },
+            "controller" : {
+                "instanceOf" : "User\\Controller\\Ajax"
+            },
+            "action" : "$1"
+        }
+    }
+}

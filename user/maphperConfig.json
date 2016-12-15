@@ -1,0 +1,12 @@
+{
+    "users" : {
+        "type" : "database",
+        "table" : "users",
+        "primaryKey" : "user_id"
+    },
+    "codes" : {
+        "type" : "database",
+        "table" : "codes",
+        "primaryKey" : "code"
+    }
+}

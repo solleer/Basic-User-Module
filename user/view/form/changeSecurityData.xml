@@ -1,0 +1,29 @@
+<form method="POST" action="user/change-security-data">
+    <div class="row">
+        <h2>Change Security Data</h2>
+    </div>
+    <div class="row">
+      <div class="one-half column">
+        <label for="username">Username:</label>
+        <input class="u-full-width" name="username" required="required" type="text" />
+      </div>
+      <div class="one-half column">
+        <label for="password">Password:</label>
+        <input class="u-full-width" name="password" required="required" type="password" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="one-half column">
+        <label for="password">New Security Question</label>
+        <textarea class="u-full-width" name="security_question" required="required"></textarea>
+      </div>
+      <div class="one-half column">
+        <label for="password_confirm">New Security Answer</label>
+        <textarea class="u-full-width" name="security_answer" required="required"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="button-primary">Change Security Data</button>
+    </div>
+</form>
+<script>$(onready.user.form.change_security_data);</script>

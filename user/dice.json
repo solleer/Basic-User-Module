@@ -1,0 +1,63 @@
+{
+    "$user_maphper_loader" : {
+        "instanceOf" : "MaphperLoader\\Json",
+        "constructParams" : ["Modules/user/maphperConfig.json"]
+    },
+    "User\\Model\\User" : {
+        "substitutions" : {
+            "Maphper\\Maphper" : {"instance" : ["$user_maphper_loader", "getMaphper"], "params" : ["users"]},
+            "Respect\\Validation\\Rules\\AllOf" : {"instance" : "$user_validate_user"}
+        }
+    },
+    "User\\Model\\Code" : {
+        "substitutions" : {"Maphper\\Maphper" : {"instance" : ["$user_maphper_loader", "getMaphper"], "params" : ["codes"]}}
+    },
+    "$user_validate_user" : {
+        "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
+        "constructParams" : [
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["id", {"instance" : "$user_validate_id"}, false]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["first_name", {"instance" : "$user_validate_name"}]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["last_name", {"instance" : "$user_validate_name"}]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["username", {"instance" : "$user_validate_username"}]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["password", {"instance" : "$user_validate_password"}]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["email", {"instance" : "Respect\\Validation\\Rules\\Email"}]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["security_question", {"instance" : "$user_validate_security_question"}]},
+            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["security_answer", {"instance" : "$user_validate_password"}]}
+        ]
+    },
+    "$user_validate_id" : {
+        "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
+        "constructParams" : [
+            {"instance" : "Respect\\Validation\\Rules\\IntVal"}
+        ]
+    },
+    "$user_validate_name" : {
+        "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
+        "constructParams" : [
+            {"instance" : "Respect\\Validation\\Rules\\Alpha"},
+            {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 20]},
+            {"instance" : "Respect\\Validation\\Rules\\NoWhitespace"}
+        ]
+    },
+    "$user_validate_username" : {
+        "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
+        "constructParams" : [
+            {"instance" : "Respect\\Validation\\Rules\\Alnum"},
+            {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 20]},
+            {"instance" : "Respect\\Validation\\Rules\\NoWhitespace"}
+        ]
+    },
+    "$user_validate_password" : {
+        "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
+        "constructParams" : [
+            {"instance" : "Respect\\Validation\\Rules\\NotEmpty"}
+        ]
+    },
+    "$user_validate_security_question" : {
+        "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
+        "constructParams" : [
+            {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 100]},
+            {"instance" : "Respect\\Validation\\Rules\\Alnum", "params" : ["?"]}
+        ]
+    }
+}

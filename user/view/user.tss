@@ -1,0 +1,24 @@
+main { content: template("user.xml"); }
+
+// If admin is viewing a User
+main:root[url["2"]=true] { bind: data(model.user_exists(json('{"user_id" : ' + data(url["2"]) + '}'))); }
+html:root[url["2"]=true]:attr(data-user) { content: 'admin'; }
+// If a user is viewing their account
+main:root[url["2"]=false] { bind: data(model.getCurrentUser()); }
+
+html:attr(data-user) { content: 'all'; }
+
+head title, #pageTitle { content: "User Account"; }
+
+main .first_name { content: data(first_name); }
+main .last_name { content: data(last_name); }
+main .username { content: data(username); }
+main .email { content: data(email); }
+main .version { content: data(default_version); }
+
+#user > div div:nth-child(1):root[authorize.id(data(user_id)).group("Administrators")=false] { display: none; }
+#user > div div:nth-child(2):root[authorize.id(data(user_id)).group("paid")=true] { display: none; }
+
+#user > p:root[url["2"]=true] { display: none; }
+
+@import "../../../Layouts/layout.tss";

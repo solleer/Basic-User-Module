@@ -1,0 +1,47 @@
+<form method="POST" action="user/signup">
+    <div class="row">
+        <h2>Signup</h2>
+    </div>
+    <div class="row">
+      <div class="three columns">
+        <label for="first_name">First Name:</label>
+        <input class="u-full-width" name="first_name" required="required" type="text" />
+      </div>
+      <div class="three columns">
+        <label for="last_name">Last Name:</label>
+        <input class="u-full-width" name="last_name" required="required" type="text" />
+      </div>
+      <div class="three columns">
+        <label for="username">Username:</label>
+        <input class="u-full-width" name="username" required="required" type="text" />
+      </div>
+      <div class="three columns">
+        <label for="email">E-Mail Address:</label>
+        <input class="u-full-width" name="email" id="email" type="email" required="required" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="one-half column">
+        <label for="password">Password:</label>
+        <input class="u-full-width" name="password" id="password" required="required" type="password" />
+      </div>
+      <div class="one-half column">
+        <label for="password_confirm">Confirm Password:</label>
+        <input class="u-full-width" name="password_confirm" required="required" type="password" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="one-half column">
+        <label for="security_question">Security Question (Max 100 characters):</label>
+        <textarea class="u-full-width" name="security_question" required="required"></textarea>
+      </div>
+      <div class="one-half column">
+        <label for="security_answer">Security Answer:</label>
+        <textarea class="u-full-width" name="security_answer" required="required"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="button-primary">Create Account</button>
+    </div>
+</form>
+<script>$(onready.user.form.signup);</script>

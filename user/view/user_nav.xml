@@ -1,0 +1,7 @@
+<div class="signedOut">
+    <a href="user/signin">Signin <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+</div>
+<div class="signedIn">
+    <a href="user">Account <i class="fa fa-user" aria-hidden="true"></i></a>
+     | <a href="user/signout">Signout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+</div>

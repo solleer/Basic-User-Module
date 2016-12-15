@@ -1,0 +1,17 @@
+main { content: template("edit.xml"); }
+
+html:attr(data-user) { content: 'all'; }
+
+head title, #pageTitle { content: "Edit Account"; }
+
+form { bind: data(model.data); }
+input[type="text"]:attr(value) { content: data(attr(name)); }
+select { bind: data(attr(name)); }
+select option[value=data()]:attr(selected) { content: "selected"; }
+
+html:header[location]:data[model.successful=true] { content: "user"; }
+html:header[location]:data[model.submitted=true]:data[model.successful=false] { content: "user/edit"; }
+html:message[edit]:data[model.successful=true] { message: "Your account was edited"; }
+html:message[edit]:data[model.submitted=true]:data[model.successful=false] { message: "There was a problem editing your account", "error"; }
+
+@import "../../../../Layouts/layout.tss";

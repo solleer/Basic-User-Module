@@ -1,0 +1,4 @@
+html:header[location]:data[model.successful=true] { content: "user/signin"; }
+html:header[location]:data[model.submitted=true]:data[model.successful=false] { content: "user"; }
+
+@import "../../../../Layouts/layout.tss";

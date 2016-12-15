@@ -1,0 +1,10 @@
+main { content: template("signup.xml"); }
+
+head title, #pageTitle { content: "Signup"; }
+
+html:header[location]:data[model.successful] { content: "user"; }
+html:header[location]:data[model.submitted=true]:data[model.successful=false] { content: "user/signup"; }
+html:message[signup]:data[model.successful=true] { message: "Your account was created"; }
+html:message[signup]:data[model.submitted=true]:data[model.successful=false] { message: "There was a problem creating your account", "error"; }
+
+@import "../../../../Layouts/layout.tss";
