@@ -4,10 +4,12 @@ namespace User\Model;
 class Credentials {
     private $model;
     private $status;
+    private $security;
 
-    public function __construct(User $model, Status $status) {
+    public function __construct(User $model, Status $status, Security $security) {
         $this->model = $model;
         $this->status = $status;
+        $this->security = $security;
     }
 
     public function checkCurrentUserSecurity($username, $password) {
@@ -18,9 +20,13 @@ class Credentials {
     }
 
     public function signin_credentials($username, $password) {
-        $user = $this->model->user_exists(['username' => $username]);
+        return $this->validateUserCredential($username, 'password', $password);
+    }
+
+    public function validateUserCredential($userSelector, $property, $valueEntered) {
+        $user = $this->model->getUser($userSelector);
         if (empty($user)) return false;
-        if (password_verify($password, $user->password)) return $user->id;
+        if ($security->verifyHash($user, $property, $password)) return $user->id;
         else return false;
     }
 }

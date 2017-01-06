@@ -18,36 +18,18 @@ class User {
         $this->userAttributes = array_merge($this->defaultAttributes, $additionalUserAttributes);
     }
 
-    public function getUsers() {
-        return $this->maphper;
-    }
-
-    public function validatePasswordConfirm($password, $passwordConfirm) {
-        $validator = (new \Respect\Validation\Validator())->equals($passwordConfirm);
-        return $validator->validate($password);
-    }
-
-    public function create($data) {
-        if ($this->user_exists(['username' => $data['username']]) !== false) return false;
-        if (!$this->validatePasswordConfirm($data['password'], $data['password_confirm'])) return false;
-        if ($data = $this->save($data)) {
-            return $status->setSigninVar($data->id);
-        }
-        else return false;
-    }
-
     public function save(array $data, $id = null) {
         $data = $this->removeExcessAttributes($data);
         $data = (object) $this->security->hashSecurityProperties($data);
-        if ($id !== null) $data = (object) array_merge((array)$this->maphper[$id], (array)$data);
-        if (!$this->validator->assert((array)$data)) return false;
-        if ($this->user_exists(['username' => $data->username]) !== false && $data->username !== $this->getCurrentUser()->username) return false;
+        if ($id !== null) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
+        if (!$this->validator->validate((array)$data)) return false;
+        if ($this->getUser($data->username) !== false && $data->username !== $this->getCurrentUser()->username) return false;
         $this->maphper[$id] = $data;
         return $data;
     }
 
-    public function updateCurrentUser($data) {
-        return $this->save($data, $status->getSigninVar());
+    public function updateCurrentUser(array $data) {
+        return $this->save($data, $this->status->getSigninVar());
     }
 
     private function removeExcessAttributes(array $data): array {
@@ -56,14 +38,16 @@ class User {
         }, ARRAY_FILTER_USE_KEY);
     }
 
-    public function user_exists($filter) {
-        $user = $this->maphper->filter($filter)->limit(1)->item(0);
+    public function getUser($selector) {
+        // Select by Id
+        if (is_numeric($selector)) $user = $this->maphper[$selector];
+        // Select by username
+        else $user = $this->maphper->filter(['username' => $selector])->limit(1)->item(0);
         if (empty($user)) return false;
         else return $user;
     }
 
     public function getCurrentUser() {
-        if (!$status->getSigninVar()) return false;
-        return $this->maphper[$status->getSigninVar()];
+        return $this->getUser($this->status->getSigninVar());
     }
 }

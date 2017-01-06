@@ -22,7 +22,7 @@ class Edit implements \MVC\Model\Form {
 
     public function submit($data) {
         $this->submitted = true;
-        return $this->model->updateCurrentUser((object) array_filter($data, function ($key) {
+        return $this->model->updateCurrentUser(array_filter($data, function ($key) {
             return !in_array($key, $this->updatableProps);
         }, ARRAY_FILTER_USE_KEY));
     }

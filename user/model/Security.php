@@ -15,4 +15,8 @@ class Security {
         }
         return $data;
     }
+
+    public function verifyHash(object $user, $property, $comparison): bool {
+        return password_verify($comparison, $user->$property);
+    }
 }

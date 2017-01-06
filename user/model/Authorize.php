@@ -15,7 +15,7 @@ class Authorize {
 
     public function __call($name, $args) {
 		if (isset($this->functions[$name])) {
-            if ($this->id) $user = $this->model->getUsers[$this->id];
+            if ($this->id) $user = $this->model->getUser($this->id);
             else $user = $this->model->getCurrentUser();
 
 			$result = $this->functions[$name]->authorize($user, $args);

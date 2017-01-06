@@ -19,7 +19,7 @@ class ChangePassword implements \MVC\Model\Form {
     public function submit($data) {
         $this->submitted = true;
         if (!$this->credentials->checkCurrentUserSecurity($data['username'], $data['password'])) return false;
-        if (!$this->model->validatePasswordConfirm($data['new_password'], $data['new_password_confirm'])) return false;
+        if ($data['new_password'] !== $data['new_password_confirm') return false;
 
         return $this->model->updateCurrentUser(['password' => $data['new_password']]);
     }
