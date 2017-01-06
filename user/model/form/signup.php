@@ -25,7 +25,7 @@ class Signup implements \MVC\Model\Form {
         $this->submitted = true;
         if ($data['password'] !== $data['password_confirm') return false;
         ///if (!isset($data['code']) || !$this->code->redeemCode($data['code'], 'pay')) return false;
-        if ($this->data = $this->model->create($data)->id) {
+        if ($this->data = $this->model->save($data)->id) {
             return true;
         }
         else {
