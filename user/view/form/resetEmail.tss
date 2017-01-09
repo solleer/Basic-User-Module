@@ -1,0 +1,1 @@
+a:attr(href) { content: "http://" + data(request.server("SERVER_NAME")) + "/user/resetPassword/" + data(token); }

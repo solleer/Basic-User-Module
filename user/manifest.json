@@ -93,84 +93,69 @@
             },
             "action" : "$1",
             "defaultAction" : "main"
+        },
+        "send-reset-password" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\SendResetPassword",
+                "substitutions" : {
+                    "MVC\\Model\\Emailer" : { "instance" : "MVC\\Model\\PHPMailerEmailer", "params" : [
+                        { "instance" : "Transphporm\\Builder", "params" : ["{dir}/view/form/resetEmail.xml", "{dir}/view/form/resetEmail.tss"]},
+                        "Reset Email"
+                        ]}
+                }
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/sendResetPassword.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
+        },
+        "reset-password" : {
+            "model" : {
+                "instanceOf" : "User\\Model\\Form\\ResetPassword"
+            },
+            "view" : {
+                "instanceOf" : "Transphporm\\Builder",
+                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/resetPassword.tss"]
+            },
+            "controller" : {
+                "instanceOf" : "MVC\\Controller\\Form"
+            },
+            "action" : "$1",
+            "defaultAction" : "main"
         }
     },
     "POST" : {
-        "defaultRoute" : "index",
-        "index" : {
-            "view" : {
-                "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/user.tss"]
-            }
-        },
         "signin" : {
-            "model" : {
-                "instanceOf" : "User\\Model\\Form\\Signin"
-            },
-            "view" : {
-                "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signin.tss"]
-            },
-            "controller" : {
-                "instanceOf" : "MVC\\Controller\\Form"
-            },
-            "action" : "$1",
+            "inherit" : "GET",
             "defaultAction" : "submit"
         },
         "signup" : {
-            "model" : {
-                "instanceOf" : "User\\Model\\Form\\Signup"
-            },
-            "view" : {
-                "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signup.tss"]
-            },
-            "controller" : {
-                "instanceOf" : "MVC\\Controller\\Form"
-            },
-            "action" : "$1",
+            "inherit" : "GET",
             "defaultAction" : "submit"
         },
         "edit" : {
-            "model" : {
-                "instanceOf" : "User\\Model\\Form\\Edit"
-            },
-            "view" : {
-                "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/edit.tss"]
-            },
-            "controller" : {
-                "instanceOf" : "MVC\\Controller\\Form"
-            },
-            "action" : "$1",
+            "inherit" : "GET",
             "defaultAction" : "submit"
         },
         "change-password" : {
-            "model" : {
-                "instanceOf" : "User\\Model\\Form\\ChangePassword"
-            },
-            "view" : {
-                "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changePassword.tss"]
-            },
-            "controller" : {
-                "instanceOf" : "MVC\\Controller\\Form"
-            },
-            "action" : "$1",
+            "inherit" : "GET",
             "defaultAction" : "submit"
         },
         "change-security-data" : {
-            "model" : {
-                "instanceOf" : "User\\Model\\Form\\ChangeSecurityData"
-            },
-            "view" : {
-                "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changeSecurityData.tss"]
-            },
-            "controller" : {
-                "instanceOf" : "MVC\\Controller\\Form"
-            },
-            "action" : "$1",
+            "inherit" : "GET",
+            "defaultAction" : "submit"
+        },
+        "send-reset-password" : {
+            "inherit" : "GET",
+            "defaultAction" : "submit"
+        },
+        "reset-password" : {
+            "inherit" : "GET",
             "defaultAction" : "submit"
         },
         "ajax" : {
