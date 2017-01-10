@@ -9,7 +9,7 @@ class Edit implements \MVC\Model\Form {
         'first_name', 'last_name', 'email', 'username'
     ];
 
-    public function __construct(\User\Model\User $model) {
+    public function __construct(\User\Model\CurrentUser $model) {
         $this->model = $model;
     }
 

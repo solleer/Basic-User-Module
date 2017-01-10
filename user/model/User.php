@@ -23,13 +23,9 @@ class User {
         $data = (object) $this->security->hashSecurityProperties($data);
         if ($id !== null) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
         if (!$this->validator->validate((array)$data)) return false;
-        if ($this->getUser($data->username) !== false && $data->username !== $this->getCurrentUser()->username) return false;
+        if ($this->getUser($data->username) !== false && $data->username !== $this->getUser($id)->username) return false;
         $this->maphper[$id] = $data;
         return $data;
-    }
-
-    public function updateCurrentUser(array $data) {
-        return $this->save($data, $this->status->getSigninVar());
     }
 
     private function removeExcessAttributes(array $data): array {
@@ -45,9 +41,5 @@ class User {
         else $user = $this->maphper->filter(['username' => $selector])->limit(1)->item(0);
         if (empty($user)) return false;
         else return $user;
-    }
-
-    public function getCurrentUser() {
-        return $this->getUser($this->status->getSigninVar());
     }
 }

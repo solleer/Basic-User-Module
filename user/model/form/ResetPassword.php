@@ -10,7 +10,7 @@ class ResetPassword implements \MVC\Model\Form {
     public $submitted = false;
     public $successful = false;
 
-    public function __construct(\User\Model\ResetToken $resetToken, \User\Model\User $user, \User\Model\Credentials $credentials) {
+    public function __construct(\User\Model\ResetToken $resetToken, \User\Model\CurrentUser $user, \User\Model\Credentials $credentials) {
         $this->resetToken = $resetToken;
         $this->user = $user;
         $this->credentials = $credentials;

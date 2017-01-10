@@ -2,21 +2,23 @@
 namespace User\Model;
 class Authorize {
     private $model;
+    private $currentUser;
     private $functions = [];
     private $defaultFunctions = [
         "user" => "\\User\\Model\\Authorize\\User"
     ];
     private $id = false;
 
-    public function __construct(User $model) {
+    public function __construct(User $model, CurrentUser $currentUser) {
         $this->model = $model;
+        $this->currentUser = $currentUser;
         foreach ($this->defaultFunctions as $key => $function) $this->addFunction($key, new $function);
     }
 
     public function __call($name, $args) {
 		if (isset($this->functions[$name])) {
             if ($this->id) $user = $this->model->getUser($this->id);
-            else $user = $this->model->getCurrentUser();
+            else $user = $this->currentUser->getCurrentUser();
 
 			$result = $this->functions[$name]->authorize($user, $args);
             $this->id = false;
