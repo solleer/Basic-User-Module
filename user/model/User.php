@@ -4,17 +4,15 @@ class User {
     private $maphper;
     private $validator;
     private $security;
-    private $status;
     private $defaultAttributes = ['id', 'first_name', 'last_name', 'username', 'email',
         'password', 'security_question', 'security_answer'];
     private $userAttributes;
 
     public function __construct(\Maphper\Maphper $maphper, \Respect\Validation\Rules\AllOf $validator,
-                                    Security $security, Status $status, $additionalUserAttributes = []) {
+                                    Security $security, $additionalUserAttributes = []) {
         $this->maphper = $maphper;
         $this->validator = $validator;
         $this->security = $security;
-        $this->status = $status;
         $this->userAttributes = array_merge($this->defaultAttributes, $additionalUserAttributes);
     }
 

@@ -8,7 +8,7 @@ class CurrentUser {
 
     public function __construct(\User\Model\User $user, Status $status) {
         $this->user = $user;
-        $this->model = $model;
+        $this->status = $status;
     }
 
     public function updateCurrentUser(array $data) {
