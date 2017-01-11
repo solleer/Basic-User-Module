@@ -9,7 +9,7 @@ class Authorize {
     ];
     private $id = false;
 
-    public function __construct(User $model, CurrentUser $currentUser) {
+    public function __construct(User $model, $currentUser) {
         $this->model = $model;
         $this->currentUser = $currentUser;
         foreach ($this->defaultFunctions as $key => $function) $this->addFunction($key, new $function);
@@ -18,7 +18,7 @@ class Authorize {
     public function __call($name, $args) {
 		if (isset($this->functions[$name])) {
             if ($this->id) $user = $this->model->getUser($this->id);
-            else $user = $this->currentUser->getCurrentUser();
+            else $user = $this->currentUser;
 
 			$result = $this->functions[$name]->authorize($user, $args);
             $this->id = false;

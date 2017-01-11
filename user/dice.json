@@ -12,6 +12,11 @@
     "User\\Model\\Code" : {
         "substitutions" : {"Maphper\\Maphper" : {"instance" : ["$user_maphper_loader", "getMaphper"], "params" : ["codes"]}}
     },
+    "User\\Model\\Authorize" : {
+        "constructParams" : [
+            { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
+        ]
+    },
     "$user_validate_user" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
