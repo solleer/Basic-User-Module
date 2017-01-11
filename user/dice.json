@@ -4,6 +4,7 @@
         "constructParams" : ["Modules/user/maphperConfig.json"]
     },
     "User\\Model\\User" : {
+        "instanceOf" : "User\\Model\\BasicUser",
         "substitutions" : {
             "Maphper\\Maphper" : {"instance" : ["$user_maphper_loader", "getMaphper"], "params" : ["users"]},
             "Respect\\Validation\\Rules\\AllOf" : {"instance" : "$user_validate_user"}
