@@ -10,7 +10,7 @@ class Signin {
     }
 
     public function signin($username, $password) {
-        $id = $this->model->signin_credentials($username, $password);
+        $id = $this->model->validateUserCredential($username, $password);
         if ($id !== false) {
             return $this->status->setSigninVar($id);
         }

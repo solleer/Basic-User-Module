@@ -20,6 +20,10 @@ class Code {
         return true;
     }
 
+    public function getPurpose($code) {
+        return $this->maphper[$code]->purpose ?? false;
+    }
+
     public function redeemCode($code) {
         if (!empty($this->maphper[$code])) {
             $purpose = $this->maphper[$code]->purpose;

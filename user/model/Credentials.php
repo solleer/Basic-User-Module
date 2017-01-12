@@ -13,17 +13,13 @@ class Credentials {
     }
 
     public function checkCurrentUserSecurity($username, $password) {
-        $id = $this->signin_credentials($username, $password);
+        $id = $this->validateUserCredential($username, $password);
 
-        if ($id === false || $id !== $status->getSigninVar()) return false;
+        if ($id === false || $id !== $this->status->getSigninVar()) return false;
         return true;
     }
 
-    public function signin_credentials($username, $password) {
-        return $this->validateUserCredential($username, 'password', $password);
-    }
-
-    public function validateUserCredential($userSelector, $property, $valueEntered) {
+    public function validateUserCredential($userSelector, $valueEntered, $property = 'password') {
         $user = $this->model->getUser($userSelector);
         if (empty($user)) return false;
         if ($security->verifyHash($user, $property, $password)) return $user->id;

@@ -16,6 +16,7 @@ class EmailResetPassword {
     }
 
     public function isTokenValid($token): bool {
+        if (!isset($this->mapper[$token])) return false;
         $now = new \DateTime();
         $diffHours = $now->diff($this->mapper[$token]->timestamp)->format('rh');
         return -24 < $diffHours && $diffHours < 0;

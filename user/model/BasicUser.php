@@ -7,6 +7,10 @@ class BasicUser implements User {
     private $defaultAttributes = ['id', 'first_name', 'last_name', 'username', 'email',
         'password', 'security_question', 'security_answer'];
     private $userAttributes;
+    private $securityProperties = [
+        'password',
+        'security_answer'
+    ];
 
     public function __construct(\Maphper\Maphper $maphper, \Respect\Validation\Rules\AllOf $validator,
                                     Security $security, $additionalUserAttributes = []) {
@@ -18,7 +22,7 @@ class BasicUser implements User {
 
     public function save(array $data, $id = null) {
         $data = $this->removeExcessAttributes($data);
-        $data = (object) $this->security->hashSecurityProperties($data);
+        $data = (object) $this->hashSecurityProperties($data);
         if ($id !== null) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
         if (!$this->validator->validate((array)$data)) return false;
         if ($this->getUser($data->username) !== false && $data->username !== $this->getUser($id)->username) return false;
@@ -30,6 +34,15 @@ class BasicUser implements User {
         return array_filter($data, function ($key) {
             return in_array($key, $this->userAttributes);
         }, ARRAY_FILTER_USE_KEY);
+    }
+
+    private function hashSecurityProperties(array $data): array {
+        foreach ($data as $key => $value) {
+            if (in_array($key, $this->securityProperties)) {
+                $data[$key] = $this->security->hashValue($data[$key]);
+            }
+        }
+        return $data;
     }
 
     public function getUser($selector) {
