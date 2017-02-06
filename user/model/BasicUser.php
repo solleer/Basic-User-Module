@@ -13,7 +13,7 @@ class BasicUser implements User {
     ];
 
     public function __construct(\Maphper\Maphper $maphper, \Respect\Validation\Rules\AllOf $validator,
-                                    Security $security, $additionalUserAttributes = []) {
+                                    Hash $security, $additionalUserAttributes = []) {
         $this->maphper = $maphper;
         $this->validator = $validator;
         $this->security = $security;
@@ -23,7 +23,7 @@ class BasicUser implements User {
     public function save(array $data, $id = null) {
         $data = $this->removeExcessAttributes($data);
         $data = (object) $this->hashSecurityProperties($data);
-        if ($id !== null) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
+        if ($id !== null && $this->getUser($id)) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
         if (!$this->validator->validate((array)$data)) return false;
         if ($this->getUser($data->username) !== false && $data->username !== $this->getUser($id)->username) return false;
         $this->maphper[$id] = $data;

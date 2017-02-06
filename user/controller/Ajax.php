@@ -9,7 +9,7 @@ class Ajax {
 
     public function user_exists() {
         $username = $_POST['username'];
-        $user = $this->model->user_exists(['username' => $username]);
+        $user = $this->model->getUser($username);
         echo json_encode(empty($user));
         exit;
     }

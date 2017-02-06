@@ -1,6 +1,6 @@
 <?php
 namespace User\Model;
-class EmailResetPassword {
+class ResetToken {
     private $mapper;
     private $rand_generator;
 

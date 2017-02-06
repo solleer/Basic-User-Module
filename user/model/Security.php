@@ -1,6 +1,6 @@
 <?php
 namespace User\Model;
-class Security {
+class Hash {
     private $algorithm = PASSWORD_DEFAULT;
 
     public function hashValue($raw) {

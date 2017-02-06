@@ -1,38 +1,36 @@
 <?php
-use User\Model\{User, Security, Status};
+use User\Model\{BasicUser, Security, Status};
 use Maphper\Maphper;
-class UserTest extends PHPUnit_Framework_TestCase {
+use Respect\Validation\Rules\AllOf;
+abstract class UserTest extends PHPUnit_Framework_TestCase {
+    abstract protected function getSampleUser($id = null): array;
 
-    private function getValidation() {
-        $loader = new Dice\Loader\Json;
-        $dice = $loader->load('user/dice.json');
-        return $dice->create('$user_validate_user');
-    }
-
-    private function filterOutSecurity(array $data): array {
-        return array_filter($data, function ($key) {
-            return !in_array($key, ['security_answer', 'password']);
-        }, ARRAY_FILTER_USE_KEY);
-    }
+    abstract protected function getUser($storage): \User\Model\User;
 
     public function testSave() {
         $storage = new \ArrayObject();
-        $maphper = new Maphper(new \Maphper\DataSource\Mock($storage, 'id'));
+        $user = $this->getUser($storage);
 
-        $user = new User($maphper, $this->getValidation(), new Security, new Status);
+        $user->save($this->getSampleUser());
 
-        $data = [
-            'username' => 'test1',
-            'first_name' => 'foo',
-            'last_name' => 'bar',
-            'password' => 'test',
-            'email' => 'foo@bar.com',
-            'security_question' => 'What is the module name?',
-            'security_answer' => 'user'
-        ];
+        $this->assertEquals($this->getSampleUser(0), (array)$storage[0]);
+    }
 
-        $user->save($data);
+    public function testSaveId() {
+        $storage = new \ArrayObject();
+        $user = $this->getUser($storage);
 
-        $this->assertEquals($this->filterOutSecurity($data), $this->filterOutSecurity((array)$storage[0]));
+        $saveId = 5;
+
+        $user->save($this->getSampleUser(), $saveId);
+
+        $this->assertEquals($this->getSampleUser($saveId), (array)$storage[$saveId]);
+    }
+
+    public function testGetUserById() {
+        $storage = new \ArrayObject([4 => $this->getSampleUser(4)]);
+        $user = $this->getUser($storage);
+
+        $this->assertEquals($this->getSampleUser(4), (array)$user->getUser(4));
     }
 }

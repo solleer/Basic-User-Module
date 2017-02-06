@@ -5,12 +5,11 @@ class Edit implements \MVC\Model\Form {
     public $successful = false;
     public $submitted = false;
     public $data = [];
-    private $updatableProps = [
-        'first_name', 'last_name', 'email', 'username'
-    ];
+    private $updatableProps;
 
-    public function __construct(\User\Model\CurrentUser $model) {
+    public function __construct(\User\Model\CurrentUser $model, $updatableProps) {
         $this->model = $model;
+        $this->updatableProps = $updatableProps;
     }
 
     public function main($data = null) {
