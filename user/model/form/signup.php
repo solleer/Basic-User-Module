@@ -10,7 +10,7 @@ class Signup implements \MVC\Model\Form {
     public $submitted = false;
     public $data;
 
-    public function __construct(\User\Model\User $model, \User\Model\Status $status, \User\Model\Code $code) {
+    public function __construct(\User\Model\User $model, \User\Model\SigninStatus $status, \User\Model\Code $code) {
         $this->model = $model;
         $this->status = $status;
         $this->code = $code;
@@ -35,7 +35,7 @@ class Signup implements \MVC\Model\Form {
     }
 
     public function success() {
-        $this->status->setSigninVar($this->data);
+        $this->status->setSigninID($this->data);
         $this->successful = true;
     }
 }

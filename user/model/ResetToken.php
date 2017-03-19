@@ -3,10 +3,12 @@ namespace User\Model;
 class ResetToken {
     private $mapper;
     private $rand_generator;
+    private $experationHours;
 
     public function __construct(\ArrayAccess $mapper, \Utils\RandomStringGenerator $rand_generator) {
         $this->mapper = $mapper;
         $this->rand_generator = $rand_generator;
+        $this->experationHours = 24;
     }
 
     public function generateToken($user_id) {
@@ -19,7 +21,7 @@ class ResetToken {
         if (!isset($this->mapper[$token])) return false;
         $now = new \DateTime();
         $diffHours = $now->diff($this->mapper[$token]->timestamp)->format('rh');
-        return -24 < $diffHours && $diffHours < 0;
+        return -$this->experationHours < $diffHours && $diffHours < 0;
     }
 
     public function getUserIDofToken($token) {

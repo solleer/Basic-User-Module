@@ -15,8 +15,7 @@ class Credentials {
     public function checkCurrentUserSecurity($username, $password) {
         $id = $this->validateUserCredential($username, $password);
 
-        if ($id === false || $id !== $this->status->getSigninVar()) return false;
-        return true;
+        return $id && $id === $this->status->getSigninVar();
     }
 
     public function validateUserCredential($userSelector, $valueEntered, $property = 'password') {

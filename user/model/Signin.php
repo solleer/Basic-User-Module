@@ -4,21 +4,19 @@ class Signin {
     private $model;
     private $status;
 
-    public function __construct(Credentials $model, Status $status) {
+    public function __construct(Credentials $model, SigninStatus $status) {
         $this->model = $model;
         $this->status = $status;
     }
 
     public function signin($username, $password) {
         $id = $this->model->validateUserCredential($username, $password);
-        if ($id !== false) {
-            return $this->status->setSigninVar($id);
-        }
+        if ($id !== false) return $this->status->setSigninID($id);
         else return false;
     }
 
     public function signout() {
-        $this->status->setSigninVar(null);
+        $this->status->setSigninID(null);
         return true;
     }
 }
