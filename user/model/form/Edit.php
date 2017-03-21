@@ -1,5 +1,5 @@
 <?php
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 class Edit implements \MVC\Model\Form {
     private $model;
     public $successful = false;

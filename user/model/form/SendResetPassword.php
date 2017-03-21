@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 
 class SendResetPassword implements \MVC\Model\Form {
     private $model;
@@ -13,7 +13,7 @@ class SendResetPassword implements \MVC\Model\Form {
     public $submitted = false;
 
     public function __construct(\User\Model\User $model, \MVC\Model\Emailer $mailer,
-                                  \User\Model\ResetToken $tokenMaker, \Utils\Request $request) {
+                                  \BasicUser\Model\ResetToken $tokenMaker, \Utils\Request $request) {
         $this->model = $model;
         $this->mailer = $mailer;
         $this->tokenMaker = $tokenMaker;

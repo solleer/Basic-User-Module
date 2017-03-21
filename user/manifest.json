@@ -3,7 +3,7 @@
         "defaultRoute" : "view",
         "view" : {
             "model" : {
-                "instanceOf" : "User\\Model\\User"
+                "instanceOf" : "BasicUser\\Model\\BasicUser"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -12,7 +12,7 @@
         },
         "signin" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\Signin"
+                "instanceOf" : "BasicUser\\Model\\Form\\Signin"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -26,7 +26,7 @@
         },
         "signup" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\Signup"
+                "instanceOf" : "BasicUser\\Model\\Form\\Signup"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -40,7 +40,7 @@
         },
         "signout" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\Signout"
+                "instanceOf" : "BasicUser\\Model\\Form\\Signout"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -54,7 +54,7 @@
         },
         "edit" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\Edit",
+                "instanceOf" : "BasicUser\\Model\\Form\\Edit",
                 "constructParams" : [
                     [
                         "first_name", "last_name", "email", "username"
@@ -73,7 +73,7 @@
         },
         "change-password" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\ChangePassword"
+                "instanceOf" : "BasicUser\\Model\\Form\\ChangePassword"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -87,7 +87,7 @@
         },
         "change-security-data" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\ChangeSecurityData"
+                "instanceOf" : "BasicUser\\Model\\Form\\ChangeSecurityData"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -101,7 +101,7 @@
         },
         "send-reset-password" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\SendResetPassword",
+                "instanceOf" : "BasicUser\\Model\\Form\\SendResetPassword",
                 "substitutions" : {
                     "MVC\\Model\\Emailer" : { "instance" : "MVC\\Model\\PHPMailerEmailer", "params" : [
                         { "instance" : "Transphporm\\Builder", "params" : ["{dir}/view/form/resetEmail.xml", "{dir}/view/form/resetEmail.tss"]},
@@ -121,7 +121,7 @@
         },
         "reset-password" : {
             "model" : {
-                "instanceOf" : "User\\Model\\Form\\ResetPassword"
+                "instanceOf" : "BasicUser\\Model\\Form\\ResetPassword"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -168,7 +168,7 @@
                 "instanceOf" : "Transphporm\\Builder"
             },
             "controller" : {
-                "instanceOf" : "User\\Controller\\Ajax"
+                "instanceOf" : "BasicUser\\Controller\\Ajax"
             },
             "action" : "$1"
         }

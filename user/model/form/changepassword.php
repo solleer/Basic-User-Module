@@ -1,12 +1,12 @@
 <?php
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 class ChangePassword implements \MVC\Model\Form {
     private $model;
     private $credentials;
     public $successful = false;
     public $submitted = false;
 
-    public function __construct(\User\Model\CurrentUser $model, \User\Model\Credentials $credentials) {
+    public function __construct(\User\Model\CurrentUser $model, \BasicUser\Model\Credentials $credentials) {
         $this->model = $model;
         $this->credentials = $credentials;
     }

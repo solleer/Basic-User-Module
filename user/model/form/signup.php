@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 
 class Signup implements \MVC\Model\Form {
     private $model;
@@ -10,7 +10,7 @@ class Signup implements \MVC\Model\Form {
     public $submitted = false;
     public $data;
 
-    public function __construct(\User\Model\User $model, \User\Model\SigninStatus $status, \User\Model\Code $code) {
+    public function __construct(\User\Model\User $model, \User\Model\SigninStatus $status, \BasicUser\Model\Code $code) {
         $this->model = $model;
         $this->status = $status;
         $this->code = $code;

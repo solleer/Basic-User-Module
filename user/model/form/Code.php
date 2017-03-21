@@ -1,5 +1,5 @@
 <?php
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 class Code implements \MVC\Model\Form {
     public $submitted = false;
     public $successful = false;
@@ -7,7 +7,7 @@ class Code implements \MVC\Model\Form {
     private $userModel;
     private $groupModel;
 
-    public function __construct(\User\Model\Code $codeModel, \User\Model\CurrentUser $userModel, \Maphper\Maphper $groupModel) {
+    public function __construct(\BasicUser\Model\Code $codeModel, \User\Model\CurrentUser $userModel, \Maphper\Maphper $groupModel) {
         $this->codeModel = $codeModel;
         $this->userModel = $userModel;
         $this->groupModel = $groupModel;

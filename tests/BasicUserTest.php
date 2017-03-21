@@ -1,5 +1,5 @@
 <?php
-use User\Model\{BasicUser, Security, Status};
+use BasicUser\Model\{BasicUser, Security, Status};
 use Maphper\Maphper;
 use Respect\Validation\Rules\AllOf;
 require_once "UserTest.php";

@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 
 class ResetPassword implements \MVC\Model\Form {
     private $resetToken;
@@ -10,7 +10,7 @@ class ResetPassword implements \MVC\Model\Form {
     public $submitted = false;
     public $successful = false;
 
-    public function __construct(\User\Model\ResetToken $resetToken, \User\Model\User $user, \User\Model\Credentials $credentials) {
+    public function __construct(\BasicUser\Model\ResetToken $resetToken, \User\Model\User $user, \BasicUser\Model\Credentials $credentials) {
         $this->resetToken = $resetToken;
         $this->user = $user;
         $this->credentials = $credentials;

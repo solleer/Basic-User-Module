@@ -1,5 +1,5 @@
 <?php
-namespace User\Controller;
+namespace BasicUser\Controller;
 class Ajax {
     private $model;
 

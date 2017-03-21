@@ -1,10 +1,10 @@
 <?php
-namespace User\Model;
+namespace BasicUser\Model;
 class Signin {
     private $model;
     private $status;
 
-    public function __construct(Credentials $model, SigninStatus $status) {
+    public function __construct(Credentials $model, \User\Model\SigninStatus $status) {
         $this->model = $model;
         $this->status = $status;
     }

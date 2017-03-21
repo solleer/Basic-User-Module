@@ -1,5 +1,5 @@
 <?php
-namespace User\Model;
+namespace BasicUser\Model;
 class Code {
     private $mapper;
     private $codeGenerator;

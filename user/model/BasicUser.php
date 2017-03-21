@@ -1,6 +1,6 @@
 <?php
-namespace User\Model;
-class BasicUser implements User {
+namespace BasicUser\Model;
+class BasicUser implements \User\Model\User {
     private $maphper;
     private $validator;
     private $security;

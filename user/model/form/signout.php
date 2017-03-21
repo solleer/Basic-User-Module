@@ -1,6 +1,6 @@
 <?php
 
-namespace User\Model\Form;
+namespace BasicUser\Model\Form;
 
 class Signout implements \MVC\Model\Form {
     private $model;
@@ -8,7 +8,7 @@ class Signout implements \MVC\Model\Form {
     public $submitted = false;
     public $data;
 
-    public function __construct(\User\Model\Signin $model) {
+    public function __construct(\BasicUser\Model\Signin $model) {
         $this->model = $model;
     }
 

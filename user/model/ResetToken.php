@@ -1,5 +1,5 @@
 <?php
-namespace User\Model;
+namespace BasicUser\Model;
 class ResetToken {
     private $mapper;
     private $rand_generator;
