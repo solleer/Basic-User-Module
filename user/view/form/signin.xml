@@ -1,18 +1,18 @@
 <form method="POST" action="user/signin">
-    <div class="row">
+    <div>
         <h2>Signin</h2>
     </div>
-    <div class="row">
-        <div class="one-half column">
+    <div class="o-layout">
+        <div class="u-1/2@tablet o-layout__item">
             <label for="username">Username</label>
-            <input type="text" name="username" class="u-full-width" />
+            <input type="text" name="username" class="u-1/1" />
         </div>
-        <div class="one-half column">
+        <div class="u-1/2@tablet o-layout__item">
             <label for="password">Password</label>
-            <input type="password" name="password" class="u-full-width" />
+            <input type="password" name="password" class="u-1/1" />
         </div>
     </div>
-    <div class="row">
+    <div>
         <button type="submit" class="button-primary">Signin</button>
     </div>
 </form>

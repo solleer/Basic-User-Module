@@ -1,26 +1,26 @@
 <form method="POST" action="user/edit">
-    <div class="row">
+    <div>
         <h2>Edit Account</h2>
     </div>
-    <div class="row">
-        <div class="three columns">
+    <div class="o-layout">
+        <div class="u-1/4@tablet o-layout__item">
             <label for="first_name">First Name</label>
-            <input type="text" name="first_name" class="u-full-width" />
+            <input type="text" name="first_name" class="u-1/1" />
         </div>
-        <div class="three columns">
+        <div class="u-1/4@tablet o-layout__item">
             <label for="last_name">Last Name</label>
-            <input type="text" name="last_name" class="u-full-width" />
+            <input type="text" name="last_name" class="u-1/1" />
         </div>
-        <div class="three columns">
+        <div class="u-1/4@tablet o-layout__item">
             <label for="email">Username</label>
-            <input type="text" name="username" class="u-full-width" />
+            <input type="text" name="username" class="u-1/1" />
         </div>
-        <div class="three columns">
+        <div class="u-1/4@tablet o-layout__item">
             <label for="email">Email</label>
-            <input type="text" name="email" class="u-full-width" />
+            <input type="text" name="email" class="u-1/1" />
         </div>
     </div>
-    <div class="row">
+    <div>
         <button type="submit" class="button-primary">Save</button>
     </div>
 </form>

@@ -1,28 +1,26 @@
 <form method="POST" action="user/change-security-data">
-    <div class="row">
+    <div>
         <h2>Change Security Data</h2>
     </div>
-    <div class="row">
-      <div class="one-half column">
+    <div class="o-layout">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="username">Username:</label>
-        <input class="u-full-width" name="username" required="required" type="text" />
+        <input class="u-1/1" name="username" required="required" type="text" />
       </div>
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="password">Password:</label>
-        <input class="u-full-width" name="password" required="required" type="password" />
+        <input class="u-1/1" name="password" required="required" type="password" />
       </div>
-    </div>
-    <div class="row">
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="password">New Security Question</label>
-        <textarea class="u-full-width" name="security_question" required="required"></textarea>
+        <textarea class="u-1/1" name="security_question" required="required"></textarea>
       </div>
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="password_confirm">New Security Answer</label>
-        <textarea class="u-full-width" name="security_answer" required="required"></textarea>
+        <textarea class="u-1/1" name="security_answer" required="required"></textarea>
       </div>
     </div>
-    <div class="row">
+    <div>
       <button type="submit" class="button-primary">Change Security Data</button>
     </div>
 </form>

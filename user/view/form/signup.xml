@@ -1,46 +1,42 @@
 <form method="POST" action="user/signup">
-    <div class="row">
+    <div>
         <h2>Signup</h2>
     </div>
-    <div class="row">
-      <div class="three columns">
+    <div class="o-layout">
+      <div class="u-1/4@tablet o-layout__item">
         <label for="first_name">First Name:</label>
-        <input class="u-full-width" name="first_name" required="required" type="text" />
+        <input class="u-1/1" name="first_name" required="required" type="text" />
       </div>
-      <div class="three columns">
+      <div class="u-1/4@tablet o-layout__item">
         <label for="last_name">Last Name:</label>
-        <input class="u-full-width" name="last_name" required="required" type="text" />
+        <input class="u-1/1" name="last_name" required="required" type="text" />
       </div>
-      <div class="three columns">
+      <div class="u-1/4@tablet o-layout__item">
         <label for="username">Username:</label>
-        <input class="u-full-width" name="username" required="required" type="text" />
+        <input class="u-1/1" name="username" required="required" type="text" />
       </div>
-      <div class="three columns">
+      <div class="u-1/4@tablet o-layout__item">
         <label for="email">E-Mail Address:</label>
-        <input class="u-full-width" name="email" id="email" type="email" required="required" />
+        <input class="u-1/1" name="email" id="email" type="email" required="required" />
       </div>
-    </div>
-    <div class="row">
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="password">Password:</label>
-        <input class="u-full-width" name="password" id="password" required="required" type="password" />
+        <input class="u-1/1" name="password" id="password" required="required" type="password" />
       </div>
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="password_confirm">Confirm Password:</label>
-        <input class="u-full-width" name="password_confirm" required="required" type="password" />
+        <input class="u-1/1" name="password_confirm" required="required" type="password" />
       </div>
-    </div>
-    <div class="row">
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="security_question">Security Question (Max 100 characters):</label>
-        <textarea class="u-full-width" name="security_question" required="required"></textarea>
+        <textarea class="u-1/1" name="security_question" required="required"></textarea>
       </div>
-      <div class="one-half column">
+      <div class="u-1/2@tablet o-layout__item">
         <label for="security_answer">Security Answer:</label>
-        <textarea class="u-full-width" name="security_answer" required="required"></textarea>
+        <textarea class="u-1/1" name="security_answer" required="required"></textarea>
       </div>
     </div>
-    <div class="row">
+    <div>
       <button type="submit" class="button-primary">Create Account</button>
     </div>
 </form>
