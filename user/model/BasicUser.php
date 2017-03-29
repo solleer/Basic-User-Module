@@ -1,31 +1,32 @@
 <?php
+use Respect\Validation\Rules\AllOf as ValidationAllOf;
 namespace BasicUser\Model;
 class BasicUser implements \User\Model\User {
     private $maphper;
     private $validator;
-    private $security;
+    private $hash;
     private $defaultAttributes = ['id', 'first_name', 'last_name', 'username', 'email',
         'password', 'security_question', 'security_answer'];
     private $userAttributes;
-    private $securityProperties = [
+    private $hashProperties = [
         'password',
         'security_answer'
     ];
 
-    public function __construct(\Maphper\Maphper $maphper, \Respect\Validation\Rules\AllOf $validator,
-                                    Hash $security, $additionalUserAttributes = []) {
+    public function __construct(\Maphper\Maphper $maphper, ValidationAllOf $validator, Hash $hash, $additionalUserAttributes = []) {
         $this->maphper = $maphper;
         $this->validator = $validator;
-        $this->security = $security;
+        $this->hash = $hash;
         $this->userAttributes = array_merge($this->defaultAttributes, $additionalUserAttributes);
     }
 
     public function save(array $data, $id = null) {
         $data = $this->removeExcessAttributes($data);
-        $data = (object) $this->hashSecurityProperties($data);
+        $data = (object) $this->hashUserProperties($data);
         // If the user is being updated then add missing properties so it passes validation
         if ($id !== null && $this->getUser($id)) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
         if (!$this->validator->validate((array)$data)) return false;
+        // If the user exists and is changing their username only allow it if the new one is not taken
         if ($this->getUser($data->username) !== false && $data->username !== $this->getUser($id)->username) return false;
         $this->maphper[$id] = $data;
         return $data;
@@ -37,10 +38,10 @@ class BasicUser implements \User\Model\User {
         }, ARRAY_FILTER_USE_KEY);
     }
 
-    private function hashSecurityProperties(array $data): array {
+    private function hashUserProperties(array $data): array {
         foreach ($data as $key => $value) {
-            if (in_array($key, $this->securityProperties)) {
-                $data[$key] = $this->security->hashValue($data[$key]);
+            if (in_array($key, $this->hashProperties)) {
+                $data[$key] = $this->hash->hashValue($data[$key]);
             }
         }
         return $data;
@@ -49,7 +50,7 @@ class BasicUser implements \User\Model\User {
     public function getUser($selector) {
         // Select by Id
         if (is_numeric($selector)) $user = $this->maphper[$selector];
-        // Select by username
+        // Select by username (The line below makes it require Maphper instead of just ArrayAccess)
         else $user = $this->maphper->filter(['username' => $selector])->limit(1)->item(0);
         if (empty($user)) return false;
         else return $user;
