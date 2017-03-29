@@ -1,21 +1,16 @@
-<div id="user">
+<div class="user">
     <h2>
-      <span class="first_name">First Name</span>'s Account
+      <span data-user-prop="first_name">First Name</span>'s Account
     </h2>
     <ul style="list-style:none">
-      <li>Name: <span class="first_name">First Name</span> <span class="last_name">Last Name</span></li>
-      <li>Username: <span class="username">cool_username</span></li>
-      <li>Email: <span class="email">a@a.a</span></li>
-      <li>Default Version: <span class="version">1A</span></li>
+      <li>Name: <span data-user-prop="first_name">First Name</span> <span data-user-prop="last_name">Last Name</span></li>
+      <li>Username: <span data-user-prop="username">cool_username</span></li>
+      <li>Email: <span data-user-prop="email">a@a.a</span></li>
     </ul>
     <p class="row">
         <a class="button" href="user/edit">Edit Your Profile</a>
         <a class="button" href="user/change-password">Change Password</a>
         <a href='user/redeem-codes' class='button'>Redeem Code</a>
-        <!--<a class="button" href="user/change-security-data">Change Security Data</a>-->
+        <a class="button" href="user/change-security-data">Change Security Data</a>
     </p>
-    <div>
-        <div>You are an Admin.</div>
-        <div>You have not paid for green sheet access yet. <a href='user/pay'>Please go to this page to gain access</a></div>
-    </div>
 </div>
