@@ -21,4 +21,4 @@ main .version { content: data(default_version); }
 
 #user > p:root[url["2"]=true] { display: none; }
 
-@import "../../../Layouts/layout.tss";
+@import "/Layouts/layout.tss";

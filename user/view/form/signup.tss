@@ -7,4 +7,4 @@ html:header[location]:data[model.submitted=true]:data[model.successful=false] { 
 html:message[signup]:data[model.successful=true] { message: "Your account was created"; }
 html:message[signup]:data[model.submitted=true]:data[model.successful=false] { message: "There was a problem creating your account", "error"; }
 
-@import "../../../../Layouts/layout.tss";
+@import "/Layouts/layout.tss";

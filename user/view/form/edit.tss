@@ -14,4 +14,4 @@ html:header[location]:data[model.submitted=true]:data[model.successful=false] { 
 html:message[edit]:data[model.successful=true] { message: "Your account was edited"; }
 html:message[edit]:data[model.submitted=true]:data[model.successful=false] { message: "There was a problem editing your account", "error"; }
 
-@import "../../../../Layouts/layout.tss";
+@import "/Layouts/layout.tss";

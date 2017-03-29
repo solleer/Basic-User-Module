@@ -7,4 +7,4 @@ html:header[location]:data[model.submitted=true]:data[model.successful=false] { 
 html:message[signin]:data[model.successful=true] { message: "You were signed in successfully"; }
 html:message[signin]:data[model.submitted=true]:data[model.successful=false] { message: "There was a problem signing you in", "error"; }
 
-@import "../../../../Layouts/layout.tss";
+@import "/Layouts/layout.tss";
