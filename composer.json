@@ -1,5 +1,6 @@
 {
     "require" : {
-        "solleer/user" : "dev-master"
+        "solleer/user" : "dev-master",
+        "solleer/token" : "v1.0.0"
     }
 }

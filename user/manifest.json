@@ -106,7 +106,8 @@
                     "MVC\\Model\\Emailer" : { "instance" : "MVC\\Model\\PHPMailerEmailer", "params" : [
                         { "instance" : "Transphporm\\Builder", "params" : ["{dir}/view/form/resetEmail.xml", "{dir}/view/form/resetEmail.tss"]},
                         "Reset Email"
-                        ]}
+                        ]},
+                    "Token\\Generator" : "$user_reset_token"
                 }
             },
             "view" : {
@@ -121,7 +122,10 @@
         },
         "reset-password" : {
             "model" : {
-                "instanceOf" : "BasicUser\\Model\\Form\\ResetPassword"
+                "instanceOf" : "BasicUser\\Model\\Form\\ResetPassword",
+                "substitutions" : {
+                    "Token\\Generator" : "$user_reset_token"
+                }
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",

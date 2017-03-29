@@ -6,24 +6,23 @@
             }]]
         ]
     },
-    "$user_maphper_loader" : {
-        "instanceOf" : "MaphperLoader\\Json",
-        "constructParams" : ["Modules/user/maphperConfig.json"]
-    },
     "User\\Model\\User" : {
         "instanceOf" : "BasicUser\\Model\\BasicUser",
         "substitutions" : {
-            "Maphper\\Maphper" : {"instance" : ["$user_maphper_loader", "getMaphper"], "params" : ["users"]},
+            "Maphper\\Maphper" : {"instance" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["users"]},
             "Respect\\Validation\\Rules\\AllOf" : "$user_validate_user"
         }
-    },
-    "User\\Model\\Code" : {
-        "substitutions" : {"Maphper\\Maphper" : {"instance" : ["$user_maphper_loader", "getMaphper"], "params" : ["codes"]}}
     },
     "User\\Model\\Authorize" : {
         "constructParams" : [
             { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
         ]
+    },
+    "$user_reset_token" : {
+        "instanceOf" : "Token\\TimeExpire",
+        "substitutions" : {
+            "ArrayAccess" : {"instance" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["resetTokens"]}
+        }
     },
     "$user_validate_user" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
@@ -70,7 +69,7 @@
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
             {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 100]},
-            {"instance" : "Respect\\Validation\\Rules\\Alnum", "params" : ["?"]}
+            {"instance" : "Respect\\Validation\\Rules\\Alnum", "params" : ["?.,'\""]}
         ]
     }
 }

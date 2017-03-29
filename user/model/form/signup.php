@@ -1,16 +1,14 @@
 <?php
-
 namespace BasicUser\Model\Form;
-
+use User\Model\{User, SigninStatus};
 class Signup implements \MVC\Model\Form {
     private $model;
-    private $code;
     private $status;
     public $successful = false;
     public $submitted = false;
-    public $data;
+    public $newId;
 
-    public function __construct(\User\Model\User $model, \User\Model\SigninStatus $status, \BasicUser\Model\Code $code) {
+    public function __construct(User $model, SigninStatus $status) {
         $this->model = $model;
         $this->status = $status;
         $this->code = $code;
@@ -24,18 +22,12 @@ class Signup implements \MVC\Model\Form {
     public function submit($data) {
         $this->submitted = true;
         if ($data['password'] !== $data['password_confirm']) return false;
-        ///if (!isset($data['code']) || !$this->code->redeemCode($data['code'], 'pay')) return false;
-        if ($this->data = $this->model->save($data)->id) {
-            return true;
-        }
-        else {
-            //$this->code->addCode($data['code']);
-            return false;
-        }
+        $this->newId = $this->model->save($data)->id;
+        return $this->newId !== false;
     }
 
     public function success() {
-        $this->status->setSigninID($this->data);
+        $this->status->setSigninID($this->newId);
         $this->successful = true;
     }
 }

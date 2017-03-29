@@ -13,7 +13,7 @@ class SendResetPassword implements \MVC\Model\Form {
     public $submitted = false;
 
     public function __construct(\User\Model\User $model, \MVC\Model\Emailer $mailer,
-                                  \BasicUser\Model\ResetToken $tokenMaker, \Utils\Request $request) {
+                                  \Token\Generator $tokenMaker, \Utils\Request $request) {
         $this->model = $model;
         $this->mailer = $mailer;
         $this->tokenMaker = $tokenMaker;
@@ -31,7 +31,7 @@ class SendResetPassword implements \MVC\Model\Form {
 
         if ($user === false) return false;
 
-        $this->token = $this->tokenMaker->generateToken($this->user->id);
+        $this->token = $this->tokenMaker->generateToken(['user_id' => $this->user->id]);
         return true;
     }
 
