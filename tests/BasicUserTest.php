@@ -1,5 +1,5 @@
 <?php
-use BasicUser\Model\{BasicUser, Security, Status};
+use BasicUser\Model\{BasicUser, Hash};
 use Maphper\Maphper;
 use Respect\Validation\Rules\AllOf;
 require_once "UserTest.php";
@@ -30,8 +30,8 @@ class BasicUserTest extends UserTest {
         return $dice->create('$user_validate_user');
     }
 
-    private function getMockSecurity() {
-        $stub = $this->createMock(Security::class);
+    private function getMockHash() {
+        $stub = $this->createMock(Hash::class);
         $stub->method('hashValue')->will($this->returnArgument(0));
         return $stub;
     }
@@ -45,7 +45,7 @@ class BasicUserTest extends UserTest {
     protected function getUser($storage): \User\Model\User {
         $maphper = new Maphper(new \Maphper\DataSource\Mock($storage, $this->getIdField()));
 
-        $user = new BasicUser($maphper, $this->getMockValidation(), $this->getMockSecurity());
+        $user = new BasicUser($maphper, $this->getMockValidation(), $this->getMockHash());
         return $user;
     }
 
