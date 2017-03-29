@@ -2,7 +2,7 @@
     "users" : {
         "type" : "database",
         "table" : "users",
-        "primaryKey" : "user_id"
+        "primaryKey" : "id"
     },
     "codes" : {
         "type" : "database",
