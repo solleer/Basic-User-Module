@@ -1,7 +1,5 @@
 <form method="POST" action="user/edit">
-    <div>
-        <h2>Edit Account</h2>
-    </div>
+    <h2>Edit Account</h2>
     <div class="o-layout">
         <div class="u-1/4@tablet o-layout__item">
             <label for="first_name">First Name</label>
@@ -24,4 +22,4 @@
         <button type="submit" class="button-primary">Save</button>
     </div>
 </form>
-<script>$(onready.form.edit);</script>
+<script>$(onready.user.form.edit);</script>

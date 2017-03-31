@@ -1,7 +1,5 @@
 <form method="POST" action="user/signup">
-    <div>
-        <h2>Signup</h2>
-    </div>
+    <h2>Signup</h2>
     <div class="o-layout">
       <div class="u-1/4@tablet o-layout__item">
         <label for="first_name">First Name:</label>

@@ -1,7 +1,5 @@
 <form method="POST" action="user/signin">
-    <div>
-        <h2>Signin</h2>
-    </div>
+    <h2>Signin</h2>
     <div class="o-layout">
         <div class="u-1/2@tablet o-layout__item">
             <label for="username">Username</label>
