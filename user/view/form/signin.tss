@@ -1,6 +1,6 @@
 main { content: template("signin.xml"); }
 
-head title, #pageTitle { content: "Signin"; }
+title { content: "Signin"; }
 
 html:header[location]:data[model.successful=true] { content: "user"; }
 html:header[location]:data[model.submitted=true]:data[model.successful=false] { content: "user/signin"; }

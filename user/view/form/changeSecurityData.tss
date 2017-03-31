@@ -1,6 +1,6 @@
 main { content: template("changeSecurityData.xml"); }
 
-head title, #pageTitle { content: "Change Security Data"; }
+title { content: "Change Security Data"; }
 
 html:attr(data-user) { content: 'all'; }
 

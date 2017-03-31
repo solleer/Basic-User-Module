@@ -1,6 +1,6 @@
 main { content: template("user.xml"); }
 html:attr(data-user) { content: 'all'; }
-head title, #pageTitle { content: "User Account"; }
+title { content: "User Account"; }
 
 .user { bind: data(model.getCurrentUser()); }
 .user [data-user-prop] { content: data(attr(data-user-prop)); }

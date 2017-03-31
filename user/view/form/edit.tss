@@ -2,7 +2,7 @@ main { content: template("edit.xml"); }
 
 html:attr(data-user) { content: 'all'; }
 
-head title, #pageTitle { content: "Edit Account"; }
+title { content: "Edit Account"; }
 
 form { bind: data(model.data); }
 input[type="text"]:attr(value) { content: data(attr(name)); }
