@@ -2,8 +2,6 @@
 use BasicUser\Model\{BasicUser, Hash};
 use Maphper\Maphper;
 use Respect\Validation\Rules\AllOf;
-require_once "UserTest.php";
-
 class BasicUserTest extends UserTest {
     private function getIdField(): string {
         return 'id';
@@ -19,8 +17,8 @@ class BasicUserTest extends UserTest {
             'security_question' => 'What is the module name?',
             'security_answer' => 'user'
         ];
-        if ($id) $user[$this->getIdField()] = $id;
-        if ($username) $user['username'] = $username;
+        if ($id !== null) $user[$this->getIdField()] = $id;
+        if ($username !== null) $user['username'] = $username;
         return $user;
     }
 
@@ -50,7 +48,7 @@ class BasicUserTest extends UserTest {
     }
 
     public function testGetUserByUsername() {
-        $storage = new \ArrayObject([4 => $this->getSampleUser(4, 'foo1'), 1 => $this->getSampleUser(1, 'foo2')]);
+        $storage = new \ArrayObject([4 => (object)$this->getSampleUser(4, 'foo1'), 1 => (object)$this->getSampleUser(1, 'foo2')]);
         $user = $this->getUser($storage);
 
         $this->assertEquals($this->getSampleUser(1, 'foo2'), (array)$user->getUser('foo2'));
