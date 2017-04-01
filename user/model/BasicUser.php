@@ -1,6 +1,6 @@
 <?php
-use Respect\Validation\Rules\AllOf as ValidationAllOf;
 namespace BasicUser\Model;
+use Respect\Validation\Rules\AllOf as ValidationAllOf;
 class BasicUser implements \User\Model\User {
     private $maphper;
     private $validator;
