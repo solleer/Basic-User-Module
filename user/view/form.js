@@ -87,6 +87,18 @@ onready.user.form = {
             last_name: {
                 minlength: 1,
                 maxlength: 20
+            },
+            username: {
+                remote: {
+                    url: "user/ajax/user_exists",
+                    type: "post",
+                    data: {
+                        username: function() {
+                            return $("[name=username]").val();
+                        },
+                        ajax: true
+                    }
+                }
             }
         });
     }

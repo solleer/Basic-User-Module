@@ -18,6 +18,11 @@
             { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
         ]
     },
+    "BasicUser\\Controller\\Ajax" : {
+        "constructParams" : [
+            { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
+        ]
+    },
     "$user_reset_token" : {
         "instanceOf" : "Token\\TimeExpire",
         "substitutions" : {
