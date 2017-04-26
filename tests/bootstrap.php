@@ -6,6 +6,6 @@ spl_autoload_register(function($class) {
 	$parts = explode('\\', ltrim($class, '\\'));
 	if ($parts[0] === 'BasicUser') {
 		array_shift($parts);
-		require_once 'user/' . implode(DIRECTORY_SEPARATOR, $parts) . '.php';
+		require_once 'src/' . implode(DIRECTORY_SEPARATOR, $parts) . '.php';
 	}
 });
