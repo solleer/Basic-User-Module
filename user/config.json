@@ -1,3 +1,4 @@
 {
-    "dice": true
+    "dice": "{dir}/dice.json",
+    "maphper" : "{dir}/maphperConfig.json"
 }

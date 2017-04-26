@@ -16,7 +16,8 @@ class ResetPassword implements \MVC\Model\Form {
         $this->credentials = $credentials;
     }
 
-    public function main($token) {
+    public function main($data) {
+        $token = $data[0] ?? '';
         if ($id = $this->resetToken->getTokenData($token)['user_id'])
             $this->data = $this->user->getUser($id);
         $this->data->token = $token;
