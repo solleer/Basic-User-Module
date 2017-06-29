@@ -4,7 +4,7 @@ class Signin {
     private $model;
     private $status;
 
-    public function __construct(Credentials $model, \User\Model\SigninStatus $status) {
+    public function __construct(Credentials $model, \Solleer\User\SigninStatus $status) {
         $this->model = $model;
         $this->status = $status;
     }

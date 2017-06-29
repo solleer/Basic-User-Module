@@ -1,6 +1,6 @@
 <?php
 namespace BasicUser\Model\Form;
-use User\Model\{User, SigninStatus};
+use Solleer\User\{User, SigninStatus};
 class Signup implements \MVC\Model\Form {
     private $model;
     private $status;

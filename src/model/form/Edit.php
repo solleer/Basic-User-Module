@@ -7,7 +7,7 @@ class Edit implements \MVC\Model\Form {
     public $data = [];
     private $updatableProps;
 
-    public function __construct(\User\Model\CurrentUser $model, $updatableProps) {
+    public function __construct(\Solleer\User\CurrentUser $model, $updatableProps) {
         $this->model = $model;
         $this->updatableProps = $updatableProps;
     }

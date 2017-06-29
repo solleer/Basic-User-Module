@@ -12,7 +12,7 @@ class SendResetPassword implements \MVC\Model\Form {
     public $successful = false;
     public $submitted = false;
 
-    public function __construct(\User\Model\User $model, \MVC\Model\Emailer $mailer,
+    public function __construct(\Solleer\User\User $model, \MVC\Model\Emailer $mailer,
                                   \Token\Generator $tokenMaker, \Utils\Request $request) {
         $this->model = $model;
         $this->mailer = $mailer;

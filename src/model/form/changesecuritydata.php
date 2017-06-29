@@ -6,7 +6,7 @@ class ChangeSecurityData implements \MVC\Model\Form {
     public $successful = false;
     public $submitted = false;
 
-    public function __construct(\User\Model\CurrentUser $model, \BasicUser\Model\Credentials $credentials) {
+    public function __construct(\Solleer\User\CurrentUser $model, \BasicUser\Model\Credentials $credentials) {
         $this->model = $model;
         $this->credentials = $credentials;
     }

@@ -6,7 +6,7 @@ class Credentials {
     private $status;
     private $hash;
 
-    public function __construct(\User\Model\User $model, \User\Model\SigninStatus $status, Hash $hash) {
+    public function __construct(\Solleer\User\User $model, \Solleer\User\SigninStatus $status, Hash $hash) {
         $this->model = $model;
         $this->status = $status;
         $this->hash = $hash;

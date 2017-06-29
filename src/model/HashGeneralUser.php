@@ -1,11 +1,11 @@
 <?php
 namespace BasicUser\Model;
-class HashGeneralUser implements \User\Model\User {
+class HashGeneralUser implements \Solleer\User\User {
     private $user;
     private $hash;
     private $hashProperties;
 
-    public function __construct(\User\Model\User $user, Hash $hash, array $hashProperties) {
+    public function __construct(\Solleer\User\User $user, Hash $hash, array $hashProperties) {
         $this->user = $user;
         $this->hash = $hash;
         $this->hashProperties = $hashProperties;

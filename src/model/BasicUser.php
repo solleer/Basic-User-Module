@@ -1,7 +1,7 @@
 <?php
 namespace BasicUser\Model;
 use Respect\Validation\Rules\AllOf as ValidationAllOf;
-class BasicUser implements \User\Model\User {
+class BasicUser implements \Solleer\User\User {
     private $maphper;
     private $validator;
     private $hash;
