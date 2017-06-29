@@ -1,4 +1,10 @@
 {
+    "name": "solleer/basic-user-module",
+    "license": "MIT",
+    "homepage": "https://github.com/solleer/Basic-User-Module",
+    "autoload": {
+    	"classmap": ["src/"]
+    },
     "require" : {
         "solleer/user" : "dev-master",
         "solleer/token" : "v1.0.0",
