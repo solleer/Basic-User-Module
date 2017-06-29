@@ -19,7 +19,7 @@
         </div>
     </div>
     <div>
-        <button type="submit" class="button-primary">Save</button>
+        <button type="submit" class="c-btn c-btn--primary c-btn--skel">Save</button>
     </div>
 </form>
 <script>$(onready.user.form.edit);</script>

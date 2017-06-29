@@ -19,7 +19,7 @@
       </div>
     </div>
     <div>
-      <button type="submit" class="button-primary">Change Security Data</button>
+      <button type="submit" class="c-btn c-btn--primary c-btn--skel">Change Security Data</button>
     </div>
 </form>
 <script>$(onready.user.form.change_security_data);</script>

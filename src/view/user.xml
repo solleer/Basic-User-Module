@@ -8,9 +8,9 @@
       <li>Email: <span data-user-prop="email">a@a.a</span></li>
     </ul>
     <p>
-        <a class="button" href="user/edit">Edit Your Profile</a>
-        <a class="button" href="user/change-password">Change Password</a>
-        <a href='user/redeem-codes' class='button'>Redeem Code</a>
-        <a class="button" href="user/change-security-data">Change Security Data</a>
+        <a class="c-btn c-btn--secondary c-btn--skel c-btn--ghost" href="user/edit">Edit Your Profile</a>
+        <a class="c-btn c-btn--secondary c-btn--skel c-btn--ghost" href="user/change-password">Change Password</a>
+        <a href='user/redeem-codes' class='c-btn c-btn--secondary c-btn--skel c-btn--ghost'>Redeem Code</a>
+        <a class="c-btn c-btn--secondary c-btn--skel c-btn--ghost" href="user/change-security-data">Change Security Data</a>
     </p>
 </div>

@@ -11,6 +11,6 @@
         </div>
     </div>
     <div>
-        <button type="submit" class="button-primary">Signin</button>
+        <button type="submit" class="c-btn c-btn--primary c-btn--skel">Signin</button>
     </div>
 </form>

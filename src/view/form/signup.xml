@@ -35,7 +35,7 @@
       </div>
     </div>
     <div>
-      <button type="submit" class="button-primary">Create Account</button>
+      <button type="submit" class="c-btn c-btn--primary c-btn--skel">Create Account</button>
     </div>
 </form>
 <script>$(onready.user.form.signup);</script>
