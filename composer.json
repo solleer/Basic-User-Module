@@ -9,6 +9,6 @@
         "solleer/user" : "dev-master",
         "solleer/token" : "v1.0.0",
         "level-2/maphper" : "dev-master",
-        "respect/validation" : "1.1.10"
+        "respect/validation" : "1.1.12"
     }
 }
