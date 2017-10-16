@@ -6,7 +6,7 @@ class ChangeSecurityData implements \MVC\Model\Form {
     public $successful = false;
     public $submitted = false;
 
-    public function __construct(\Solleer\User\CurrentUser $model, \BasicUser\Model\Credentials $credentials) {
+    public function __construct(\Solleer\User\CurrentUser $model, \BasicUser\Model\CurrentUserCredentials $credentials) {
         $this->model = $model;
         $this->credentials = $credentials;
     }
@@ -18,7 +18,7 @@ class ChangeSecurityData implements \MVC\Model\Form {
 
     public function submit($data) {
         $this->submitted = true;
-        if (!$this->credentials->checkCurrentUserPassword($data['username'], $data['password'])) return false;
+        if (!$this->credentials->validateUserCredential($data['username'], $data['password'])) return false;
 
         return $this->model->updateCurrentUser([
             'security_question' => $data['security_question'],
