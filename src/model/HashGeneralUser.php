@@ -27,4 +27,8 @@ class HashGeneralUser implements \Solleer\User\User {
     public function getUser($selector) {
         return $this->user->getUser($selector);
     }
+
+    public function delete($selector) {
+        return $this->user->delete($selector);
+    }
 }

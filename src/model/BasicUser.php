@@ -55,4 +55,12 @@ class BasicUser implements \Solleer\User\User {
         if (empty($user)) return false;
         else return $user;
     }
+
+    public function delete($selector) {
+        // Delete by Id
+        if (is_numeric($selector)) unset($this->maphper[$selector]);
+        // Delete by username (The line below makes it require Maphper instead of just ArrayAccess)
+        else $user = $this->maphper->filter(['username' => $selector])->limit(1)->delete();
+        return true;
+    }
 }
