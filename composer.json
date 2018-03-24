@@ -6,9 +6,9 @@
     	"classmap": ["src/"]
     },
     "require" : {
-        "solleer/user" : "dev-master",
-        "solleer/token" : "v1.0.0",
+        "solleer/user" : "^1.0",
+        "solleer/token" : "^1.0",
         "level-2/maphper" : "dev-master",
-        "respect/validation" : "1.1.12"
+        "respect/validation" : "^1.1.12"
     }
 }
