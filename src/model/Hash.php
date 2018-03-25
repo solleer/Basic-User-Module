@@ -10,7 +10,7 @@ class Hash {
             return $raw;
     }
 
-    public function verifyHash(object $user, $property, $comparison): bool {
-        return password_verify($comparison, $user->$property);
+    public function verifyHash($hashedVal, $comparison): bool {
+        return password_verify($comparison, $hashedVal);
     }
 }

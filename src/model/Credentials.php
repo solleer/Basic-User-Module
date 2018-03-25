@@ -14,7 +14,7 @@ class Credentials {
     public function validateUserCredential($userSelector, $valueEntered, $property = 'password') {
         $user = $this->model->getUser($userSelector);
         if (empty($user)) return false;
-        if ($this->hash->verifyHash($user, $property, $password)) return $user->id;
+        if ($this->hash->verifyHash($user->$property, $valueEntered)) return $user->id;
         else return false;
     }
 }
