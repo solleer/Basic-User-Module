@@ -2,18 +2,31 @@
     "Config\\RouterOutput" : {
         "call" : [
             ["addViewData", [{
-                "authorize" : {"instance" : "User\\Model\\Authorize"}
+                "authorize" : {"instance" : "Solleer\\User\\Authorize"}
             }]]
         ]
     },
-    "User\\Model\\User" : {
+    "Solleer\\User\\User" : {
+        "instanceOf" : "BasicUser\\Model\\HashGeneralUser",
+        "substitutions" : {
+            "Solleer\\User\\User" : "$user_basic_user"
+        },
+        "constructParams" : [
+            ["password", "security_answer"]
+        ]
+    },
+    "$user_basic_user" : {
         "instanceOf" : "BasicUser\\Model\\BasicUser",
         "substitutions" : {
-            "Maphper\\Maphper" : {"instance" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["users"]},
-            "Respect\\Validation\\Rules\\AllOf" : "$user_validate_user"
-        }
+            "Respect\\Validation\\Rules\\AllOf" : "$user_validate_user",
+            "Maphper\\Maphper" : {"instance" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["users"]}
+        },
+        "constructParams" : [
+            ["first_name", "last_name", "email",
+                "password", "security_question", "security_answer"]
+        ]
     },
-    "User\\Model\\Authorize" : {
+    "Solleer\\User\\Authorize" : {
         "constructParams" : [
             { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
         ]

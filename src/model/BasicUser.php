@@ -4,25 +4,17 @@ use Respect\Validation\Rules\AllOf as ValidationAllOf;
 class BasicUser implements \Solleer\User\User {
     private $maphper;
     private $validator;
-    private $hash;
-    private $defaultAttributes = ['id', 'first_name', 'last_name', 'username', 'email',
-        'password', 'security_question', 'security_answer'];
+    private $defaultAttributes = ['id', 'username'];
     private $userAttributes;
-    private $hashProperties = [
-        'password',
-        'security_answer'
-    ];
 
-    public function __construct(\Maphper\Maphper $maphper, ValidationAllOf $validator, Hash $hash, $additionalUserAttributes = []) {
+    public function __construct(\Maphper\Maphper $maphper, ValidationAllOf $validator, $additionalUserAttributes = []) {
         $this->maphper = $maphper;
         $this->validator = $validator;
-        $this->hash = $hash;
         $this->userAttributes = array_merge($this->defaultAttributes, $additionalUserAttributes);
     }
 
     public function save(array $data, $id = null) {
-        $data = $this->removeExcessAttributes($data);
-        $data = (object) $this->hashUserProperties($data);
+        $data = (object) $this->removeExcessAttributes($data);
         // If the user is being updated then add missing properties so it passes validation
         if ($id !== null && $this->getUser($id)) $data = (object) array_merge((array)$this->getUser($id), (array)$data);
         if (!$this->validator->validate((array)$data)) return false;
@@ -36,15 +28,6 @@ class BasicUser implements \Solleer\User\User {
         return array_filter($data, function ($key) {
             return in_array($key, $this->userAttributes);
         }, ARRAY_FILTER_USE_KEY);
-    }
-
-    private function hashUserProperties(array $data): array {
-        foreach ($data as $key => $value) {
-            if (in_array($key, $this->hashProperties)) {
-                $data[$key] = $this->hash->hashValue($data[$key]);
-            }
-        }
-        return $data;
     }
 
     public function getUser($selector) {
