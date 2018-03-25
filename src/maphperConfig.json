@@ -8,5 +8,10 @@
         "type" : "database",
         "table" : "codes",
         "primaryKey" : "code"
+    },
+    "resetTokens" : {
+        "type" : "database",
+        "table" : "resetTokens",
+        "primaryKey" : "token"
     }
 }
