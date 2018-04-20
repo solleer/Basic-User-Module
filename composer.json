@@ -8,7 +8,7 @@
     "require" : {
         "solleer/user" : "^1.0",
         "solleer/token" : "^1.0",
-        "level-2/maphper" : "dev-master",
+        "level-2/maphper" : "^0.9",
         "respect/validation" : "^1.1.12"
     }
 }
