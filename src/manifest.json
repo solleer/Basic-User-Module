@@ -103,8 +103,8 @@
             "model" : {
                 "instanceOf" : "BasicUser\\Model\\Form\\SendResetPassword",
                 "substitutions" : {
-                    "MVC\\Model\\Emailer" : { "instance" : "MVC\\Model\\PHPMailerEmailer", "params" : [
-                        { "instance" : "Transphporm\\Builder", "params" : ["{dir}/view/form/resetEmail.xml", "{dir}/view/form/resetEmail.tss"]},
+                    "MVC\\Model\\Emailer" : { "Dice::INSTANCE" : "MVC\\Model\\PHPMailerEmailer", "params" : [
+                        { "Dice::INSTANCE" : "Transphporm\\Builder", "params" : ["{dir}/view/form/resetEmail.xml", "{dir}/view/form/resetEmail.tss"]},
                         "Reset Email"
                         ]},
                     "Token\\Generator" : "$user_reset_token"

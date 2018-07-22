@@ -2,7 +2,7 @@
     "Config\\RouterOutput" : {
         "call" : [
             ["addViewData", [{
-                "authorize" : {"instance" : "Solleer\\User\\Authorize"}
+                "authorize" : {"Dice::INSTANCE" : "Solleer\\User\\Authorize"}
             }]]
         ]
     },
@@ -19,7 +19,7 @@
         "instanceOf" : "BasicUser\\Model\\BasicUser",
         "substitutions" : {
             "Respect\\Validation\\Rules\\AllOf" : "$user_validate_user",
-            "Maphper\\Maphper" : {"instance" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["users"]}
+            "Maphper\\Maphper" : {"Dice::INSTANCE" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["users"]}
         },
         "constructParams" : [
             ["first_name", "last_name", "email",
@@ -28,66 +28,66 @@
     },
     "Solleer\\User\\Authorize" : {
         "constructParams" : [
-            { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
+            { "Dice::INSTANCE" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
         ]
     },
     "BasicUser\\Controller\\Ajax" : {
         "constructParams" : [
-            { "instance" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
+            { "Dice::INSTANCE" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
         ]
     },
     "$user_reset_token" : {
         "instanceOf" : "Token\\TimeExpire",
         "substitutions" : {
-            "ArrayAccess" : {"instance" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["resetTokens"]}
+            "ArrayAccess" : {"Dice::INSTANCE" : ["MaphperLoader\\Json", "getMaphper"], "params" : ["resetTokens"]}
         }
     },
     "$user_validate_user" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["id", {"instance" : "$user_validate_id"}, false]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["first_name", {"instance" : "$user_validate_name"}]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["last_name", {"instance" : "$user_validate_name"}]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["username", {"instance" : "$user_validate_username"}]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["password", {"instance" : "$user_validate_password"}]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["email", {"instance" : "Respect\\Validation\\Rules\\Email"}]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["security_question", {"instance" : "$user_validate_security_question"}]},
-            {"instance" : "Respect\\Validation\\Rules\\Key", "params" : ["security_answer", {"instance" : "$user_validate_password"}]}
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["id", {"Dice::INSTANCE" : "$user_validate_id"}, false]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["first_name", {"Dice::INSTANCE" : "$user_validate_name"}]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["last_name", {"Dice::INSTANCE" : "$user_validate_name"}]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["username", {"Dice::INSTANCE" : "$user_validate_username"}]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["password", {"Dice::INSTANCE" : "$user_validate_password"}]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["email", {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Email"}]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["security_question", {"Dice::INSTANCE" : "$user_validate_security_question"}]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Key", "params" : ["security_answer", {"Dice::INSTANCE" : "$user_validate_password"}]}
         ]
     },
     "$user_validate_id" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
-            {"instance" : "Respect\\Validation\\Rules\\IntVal"}
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\IntVal"}
         ]
     },
     "$user_validate_name" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
-            {"instance" : "Respect\\Validation\\Rules\\Alpha"},
-            {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 20]},
-            {"instance" : "Respect\\Validation\\Rules\\NoWhitespace"}
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Alpha"},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Length", "params" : [1, 20]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\NoWhitespace"}
         ]
     },
     "$user_validate_username" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
-            {"instance" : "Respect\\Validation\\Rules\\Alnum"},
-            {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 20]},
-            {"instance" : "Respect\\Validation\\Rules\\NoWhitespace"}
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Alnum"},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Length", "params" : [1, 20]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\NoWhitespace"}
         ]
     },
     "$user_validate_password" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
-            {"instance" : "Respect\\Validation\\Rules\\NotEmpty"}
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\NotEmpty"}
         ]
     },
     "$user_validate_security_question" : {
         "instanceOf" : "Respect\\Validation\\Rules\\AllOf",
         "constructParams" : [
-            {"instance" : "Respect\\Validation\\Rules\\Length", "params" : [1, 100]},
-            {"instance" : "Respect\\Validation\\Rules\\Alnum", "params" : ["?.,'\""]}
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Length", "params" : [1, 100]},
+            {"Dice::INSTANCE" : "Respect\\Validation\\Rules\\Alnum", "params" : ["?.,'\""]}
         ]
     }
 }
