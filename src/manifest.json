@@ -7,7 +7,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/user.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/user.tss"]
             }
         },
         "signin" : {
@@ -16,7 +16,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signin.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/signin.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -30,7 +30,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signup.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/signup.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -44,7 +44,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/signout.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/signout.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -63,7 +63,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/edit.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/edit.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -77,7 +77,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changePassword.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/changePassword.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -91,7 +91,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/changeSecurityData.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/changeSecurityData.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -104,7 +104,7 @@
                 "instanceOf" : "BasicUser\\Model\\Form\\SendResetPassword",
                 "substitutions" : {
                     "MVC\\Model\\Emailer" : { "Dice::INSTANCE" : "MVC\\Model\\PHPMailerEmailer", "params" : [
-                        { "Dice::INSTANCE" : "Transphporm\\Builder", "params" : ["{dir}/view/form/resetEmail.xml", "{dir}/view/form/resetEmail.tss"]},
+                        { "Dice::INSTANCE" : "Transphporm\\Builder", "params" : ["./view/form/resetEmail.xml", "./view/form/resetEmail.tss"]},
                         "Reset Email"
                         ]},
                     "Token\\Generator" : "$user_reset_token"
@@ -112,7 +112,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/sendResetPassword.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/sendResetPassword.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
@@ -129,7 +129,7 @@
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
-                "constructParams" : ["Layouts/layout.xml", "{dir}/view/form/resetPassword.tss"]
+                "constructParams" : ["Layouts/layout.xml", "./view/form/resetPassword.tss"]
             },
             "controller" : {
                 "instanceOf" : "MVC\\Controller\\Form"
