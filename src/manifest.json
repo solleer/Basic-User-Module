@@ -3,7 +3,7 @@
         "defaultRoute" : "view",
         "view" : {
             "model" : {
-                "instanceOf" : "BasicUser\\Model\\BasicUser"
+                "instanceOf" : "Solleer\\User\\CurrentUser"
             },
             "view" : {
                 "instanceOf" : "Transphporm\\Builder",
@@ -106,7 +106,7 @@
                     "MVC\\Model\\Emailer" : { "Dice::INSTANCE" : "MVC\\Model\\PHPMailerEmailer", "params" : [
                         { "Dice::INSTANCE" : "Transphporm\\Builder", "params" : ["./view/form/resetEmail.xml", "./view/form/resetEmail.tss"]},
                         "Reset Email"
-                        ]},
+                    ]},
                     "Token\\Generator" : "$user_reset_token"
                 }
             },

@@ -1,5 +1,5 @@
 {
-    "Config\\RouterOutput" : {
+    "Solleer\\Framework\\RouteOutput" : {
         "call" : [
             ["addViewData", [{
                 "authorize" : {"Dice::INSTANCE" : "Solleer\\User\\Authorize"}
@@ -28,12 +28,12 @@
     },
     "Solleer\\User\\Authorize" : {
         "constructParams" : [
-            { "Dice::INSTANCE" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
+            { "Dice::INSTANCE" : ["Solleer\\User\\CurrentUser", "getCurrentUser"] }
         ]
     },
     "BasicUser\\Controller\\Ajax" : {
         "constructParams" : [
-            { "Dice::INSTANCE" : ["User\\Model\\CurrentUser", "getCurrentUser"] }
+            { "Dice::INSTANCE" : ["Solleer\\User\\CurrentUser", "getCurrentUser"] }
         ]
     },
     "$user_reset_token" : {
